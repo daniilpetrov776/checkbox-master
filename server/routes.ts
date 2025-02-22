@@ -11,6 +11,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all checkbox states
   app.get("/api/checkboxes", async (_req, res) => {
     const states = await storage.getCheckboxStates();
+    res.setHeader('ngrok-skip-browser-warning', 'true');
     res.json(states);
   });
 
